@@ -13,7 +13,6 @@ const participantSchema = new mongoose.Schema( {
   },
   birthdate: {
     type: Date,
-    required: true,
     },
   info: {
       type: String,

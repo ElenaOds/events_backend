@@ -20,6 +20,7 @@ const addParticipantController = async(req, res) => {
   res.status(200).json(
    newParticipant
   );
+
 }
 
 module.exports = { addParticipantController };
