@@ -4,20 +4,21 @@ const mongoose = require("mongoose");
 const participantSchema = new mongoose.Schema( {
   name: {
       type: String,
-      // required:  [true, 'Name is required'],
+      required:  [true, 'Name is required'],
   },
   email: {
       type: String,
-      // required: [true, 'Email is required'],
+      required: [true, 'Email is required'],
       unique: true,
   },
   birthdate: {
     type: Date,
+    required: true,
     },
   info: {
       type: String,
       enum: ['social media', 'friends', 'found myself'],
-      // required: [true, 'Please choose the data'],
+      required: [true, 'Please choose the data'],
     },
 },
 );
