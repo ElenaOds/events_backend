@@ -9,16 +9,18 @@ const participantSchema = new mongoose.Schema( {
   email: {
       type: String,
       required: [true, 'Email is required'],
-      unique: true,
   },
   birthdate: {
     type: Date,
-    required: true,
     },
   info: {
       type: String,
       enum: ['social media', 'friends', 'found myself'],
       required: [true, 'Please choose the data'],
+    },
+    owner: {
+      type: mongoose.Types.ObjectId,
+      ref: "Event",
     },
 },
 );
@@ -36,13 +38,12 @@ const eventsSchema = new mongoose.Schema( {
     organizer: {
         type: String,
       },
-    participants: [participantSchema],
   },
 );
 
   
 const Event = mongoose.model('Event', eventsSchema);
-const Participant = mongoose.model('participant', participantSchema);
+const Participant = mongoose.model('Participant', participantSchema);
 
 module.exports = {
   Event,

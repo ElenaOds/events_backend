@@ -4,7 +4,6 @@ const logger = require('morgan');
 const dotenv = require('dotenv');
 
 const { eventsRouter } = require('./routes/api/events')
-// const { participantRouter } = require = ('./routes/api/participants.js')
 
 dotenv.config({ path: './.env'});
 
@@ -18,7 +17,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.use('/api/events', eventsRouter);
-// pp.use('/api/participants', participantRouter);
 
 app.all('*', (req, res) => {
     res.status(404).json({ message: 'Not found' })
